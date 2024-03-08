@@ -7,6 +7,7 @@
     --skin-color: #ec1839;
     --bg-black-200:#091c23;
 }
+
 body{
     margin: 0;
     padding: 0;
@@ -27,6 +28,70 @@ body{
 ul{
     list-style: none;
 }
+.toggle-btn{
+    visibility: hidden;
+}
+.nav-input input{
+    display: none;
+    visibility: hidden;
+
+}
+.toggle{
+    position: absolute;
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    top:20px;
+    left: 15px;
+    z-index: 10000;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.toggle .common{
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: #ec1839;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+.toggle .top-line{
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.toggle .middle-line{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.toggle .bottom-line{
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.nav-input input:checked ~ .toggle .top-line{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+.nav-input input:checked ~ .toggle .bottom-line{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+.nav-input input:checked ~ .toggle .middle-line{
+    opacity: 0;
+    transform: translate(20px);
+}
+.nav-input input:checked ~ .aside{
+    transform: translate(0);
+    /* box-shadow: 0 0 15px rgba(0,0,0,0.5); */
+}
 .section{
     /* width: 270px; */
     background:#f2f2fc;
@@ -34,6 +99,7 @@ ul{
     display: block;
     padding: 0 30px;
     opacity: 1;
+    /* transform: translateX(-275px); */
 }
 .main-content{
     padding-left: 270px;
@@ -125,6 +191,7 @@ ul{
     z-index: 1000;
     font-size: 30px;
     text-transform: capitalize;
+    /* transform: translateX(-275px); */
 }
 .logo{
     position: absolute;
@@ -631,6 +698,7 @@ h3.my-profession{
 .contact-form .btn{
     height: 50px;
     padding: 0 50px;
+    cursor: pointer;
 }
 @media (max-width:1199px){
     h3.my-profession{
@@ -664,8 +732,12 @@ h3.my-profession{
     }
 }
 @media(max-width:1010px){
+    .toggle-btn{
+        visibility:visible;
+    }
     .aside{
-        left: -270px;
+        /* left: -270px; */
+        transform: translateX(-275px);
     }
     .main-content{
         padding-left: 0;
